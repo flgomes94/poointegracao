@@ -133,13 +133,13 @@ public class Cadastro extends javax.swing.JInternalFrame {
 
         if(this.jComboCadastro.getSelectedItem() == "Fornecedor")
         {
-            CadastroGeral CadGeral = new CadastroGeral();
-            CadGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
+            CadastroFornecedor CadFornecedor = new CadastroFornecedor();
+            CadFornecedor.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
        
             try {
-                PainelCad.add(CadGeral);
-                CadGeral.setMaximum(true);
-                CadGeral.setVisible(true);
+                PainelCad.add(CadFornecedor);
+                CadFornecedor.setMaximum(true);
+                CadFornecedor.setVisible(true);
             } catch (Exception e) {
             }    
         }

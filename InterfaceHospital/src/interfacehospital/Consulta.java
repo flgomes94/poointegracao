@@ -135,13 +135,13 @@ public class Consulta extends javax.swing.JInternalFrame {
 
         if(this.jComboConsulta.getSelectedItem().equals("Fornecedor"))
         {
-            ConsultaGeral ConsGeral = new ConsultaGeral();
-            ConsGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
+            ConsultaFornecedores ConsFornecedores = new ConsultaFornecedores();
+            ConsFornecedores.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
        
             try {
-                PainelConsulta.add(ConsGeral);
-                ConsGeral.setMaximum(true);
-                ConsGeral.setVisible(true);
+                PainelConsulta.add(ConsFornecedores);
+                ConsFornecedores.setMaximum(true);
+                ConsFornecedores.setVisible(true);
             } catch (Exception e) {
             }
         }

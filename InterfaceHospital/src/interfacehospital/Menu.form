@@ -26,14 +26,14 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jScrollPane3" min="-2" pref="174" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jScrollPane4" max="32767" attributes="0"/>
+              <Component id="jScrollPane4" pref="426" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
-          <Component id="jScrollPane4" alignment="0" pref="365" max="32767" attributes="0"/>
+          <Component id="jScrollPane3" alignment="1" pref="428" max="32767" attributes="0"/>
+          <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -70,7 +70,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                       <Component id="Cadastro2" min="-2" pref="48" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Component id="Consulta2" min="-2" max="-2" attributes="0"/>
@@ -78,9 +78,9 @@
                       <Component id="Atualização2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Component id="remoção2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="35" max="32767" attributes="0"/>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
                       <Component id="Sair2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -89,7 +89,7 @@
             <Component class="javax.swing.JButton" name="Cadastro2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/cadastro.png"/>
+                  <Image iconType="3" name="/Imagens/cadastro.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastro"/>
               </Properties>
@@ -100,7 +100,7 @@
             <Component class="javax.swing.JButton" name="Consulta2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/consulta.png"/>
+                  <Image iconType="3" name="/Imagens/consulta.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consulta"/>
               </Properties>
@@ -111,7 +111,7 @@
             <Component class="javax.swing.JButton" name="Atualiza&#xe7;&#xe3;o2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/atualiza&#xe7;&#xe3;o.png"/>
+                  <Image iconType="3" name="/Imagens/atualiza&#xe7;&#xe3;o.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Atualiza&#xe7;&#xe3;o"/>
               </Properties>
@@ -122,7 +122,7 @@
             <Component class="javax.swing.JButton" name="remo&#xe7;&#xe3;o2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagens/excluir.png"/>
+                  <Image iconType="3" name="/Imagens/excluir.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remo&#xe7;&#xe3;o"/>
               </Properties>
@@ -151,12 +151,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="328" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="424" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="363" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="426" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
