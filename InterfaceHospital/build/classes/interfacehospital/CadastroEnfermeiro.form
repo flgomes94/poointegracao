@@ -163,61 +163,51 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelNOME2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtEndereco" min="-2" pref="300" max="-2" attributes="0"/>
-                                          <Component id="txtRG" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="txtNome1" alignment="0" min="-2" pref="371" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabelNOME5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelNOME4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelNOME6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtCPF" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Component id="txtSalario" min="-2" pref="172" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="btnCadastrar" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="txtCidade" min="-2" pref="170" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="jLabelNOME3" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jComboBoxEstados" min="-2" pref="133" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jComboBoxLotacao2" min="-2" pref="133" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jComboBoxRegimeTrabalho" min="-2" pref="133" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelNOME2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEndereco" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txtRG" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtNome1" alignment="0" min="-2" pref="371" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelNOME" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelNOME1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNOME5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNOME4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNOME6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="41" pref="41" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="txtCidade" min="-2" pref="170" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jLabelNOME3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jComboBoxEstados" min="-2" pref="133" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jComboBoxLotacao2" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jComboBoxRegimeTrabalho" min="-2" pref="133" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="txtSalario" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Component id="txtCPF" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNOME" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNOME1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCadastrar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="129" max="32767" attributes="0"/>
+                      <EmptySpace pref="155" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -263,9 +253,9 @@
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBoxRegimeTrabalho" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="btnCadastrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="172" max="32767" attributes="0"/>
+                      <EmptySpace pref="149" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -273,7 +263,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabelNOME">
               <Properties>
-                <Property name="text" type="java.lang.String" value="NOME:"/>
+                <Property name="text" type="java.lang.String" value="Nome:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNome1">
@@ -283,7 +273,8 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ENDERE&#xc7;O:"/>
+                <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME2">
@@ -295,12 +286,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ESTADO:"/>
+                <Property name="text" type="java.lang.String" value="Estado:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="LOTA&#xc7;&#xc3;O:"/>
+                <Property name="text" type="java.lang.String" value="Lota&#xe7;&#xe3;o:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxLotacao2">
@@ -323,7 +314,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="REGIME DE TRABALHO:"/>
+                <Property name="text" type="java.lang.String" value="Regime de Trabalho:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxRegimeTrabalho">
@@ -352,7 +343,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CIDADE:"/>
+                <Property name="text" type="java.lang.String" value="Cidade:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCidade">
@@ -402,7 +393,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SAL&#xc1;RIO:"/>
+                <Property name="text" type="java.lang.String" value="Sal&#xe1;rio:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtRG">
@@ -424,7 +415,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnCadastrar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CADASTRAR"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
             </Component>
           </SubComponents>

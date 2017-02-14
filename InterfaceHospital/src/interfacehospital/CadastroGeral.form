@@ -38,49 +38,37 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelNOME2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="txtRg" min="-2" pref="170" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabelNOME2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNOME" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNOME1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelNOME" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelNOME1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNOME4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNOME5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNOME6" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtEndereço" min="-2" pref="300" max="-2" attributes="0"/>
-                                  <Component id="txtNome" min="-2" pref="383" max="-2" attributes="0"/>
+                                  <Component id="txtCpf" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtSalario" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtCidade" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Component id="jLabelNOME3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxEstado" min="-2" pref="125" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtRg" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="txtEndereço" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <Component id="txtNome" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="btnCadastrar" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelNOME4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelNOME5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelNOME6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtCpf" min="-2" pref="170" max="-2" attributes="0"/>
-                                      <Component id="txtSalario" min="-2" pref="172" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="txtCidade" min="-2" pref="170" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Component id="jLabelNOME3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jComboBoxEstado" min="-2" pref="125" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
+                          <Component id="btnCadastrar" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="236" max="32767" attributes="0"/>
+                      <EmptySpace pref="254" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -119,9 +107,9 @@
                           <Component id="txtSalario" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelNOME6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnCadastrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -134,12 +122,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME">
               <Properties>
-                <Property name="text" type="java.lang.String" value="NOME:"/>
+                <Property name="text" type="java.lang.String" value="Nome:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ENDERE&#xc7;O:"/>
+                <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEndere&#xe7;o">
@@ -172,19 +160,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CIDADE:"/>
+                <Property name="text" type="java.lang.String" value="Cidade:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SAL&#xc1;RIO:"/>
+                <Property name="text" type="java.lang.String" value="Sal&#xe1;rio"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSalario">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelNOME3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ESTADO:"/>
+                <Property name="text" type="java.lang.String" value="Estado:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxEstado">
@@ -232,7 +220,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnCadastrar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CADASTRAR"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>

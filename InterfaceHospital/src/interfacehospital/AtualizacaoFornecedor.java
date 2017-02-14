@@ -38,7 +38,6 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
         jLabelNOME3 = new javax.swing.JLabel();
         txtNome4 = new javax.swing.JTextField();
         jLabelNOME4 = new javax.swing.JLabel();
-        txtNome5 = new javax.swing.JTextField();
         jLabelNOME5 = new javax.swing.JLabel();
         jLabelNOME6 = new javax.swing.JLabel();
         txtNome6 = new javax.swing.JTextField();
@@ -46,8 +45,9 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
         jLabelNOME7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabelNOME8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
+        btnRemover = new javax.swing.JButton();
+        jComboBoxEstados = new javax.swing.JComboBox<>();
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,12 +89,6 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
 
         jLabelNOME4.setText("Bairro:");
 
-        txtNome5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome5ActionPerformed(evt);
-            }
-        });
-
         jLabelNOME5.setText("Estado:");
 
         jLabelNOME6.setText("Logradouro:");
@@ -122,18 +116,26 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
 
         jLabelNOME8.setText("Responsável:");
 
-        jButton1.setLabel("Editar Fornecedor");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizar.setText("Atualizar Fornecedor");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
-        jButton2.setActionCommand("Apagar  Fornecedor");
-        jButton2.setLabel("Apagar  Fornecedor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnRemover.setText("Remover  Fornecedor");
+        btnRemover.setActionCommand("Apagar  Fornecedor");
+        btnRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRemoverActionPerformed(evt);
+            }
+        });
+
+        jComboBoxEstados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre - AC", "Alagoas - AL", "Amapá - AP", "Amazonas - AM", "Bahia  - BA", "Ceará - CE", "Distrito Federal  - DF", "Espírito Santo - ES", "Goiás - GO", "Maranhão - MA", "Mato Grosso - MT", "Mato Grosso do Sul - MS", "Minas Gerais - MG", "Pará - PA", "Paraíba - PB", "Paraná - PR", "Pernambuco - PE", "Piauí - PI", "Rio de Janeiro - RJ", "Rio Grande do Norte - RN", "Rio Grande do Sul - RS", "Rondônia - RO", "Roraima - RR", "Santa Catarina - SC", "São Paulo - SP", "Sergipe - SE", "Tocantins - TO" }));
+        jComboBoxEstados.setToolTipText("");
+        jComboBoxEstados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEstadosActionPerformed(evt);
             }
         });
 
@@ -154,14 +156,15 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                         .addComponent(txtNome6, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton2)
+                            .addComponent(btnRemover)
                             .addGap(341, 341, 341)
-                            .addComponent(jButton1))
+                            .addComponent(btnAtualizar))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabelNOME)
-                                .addComponent(jLabelNOME2)
-                                .addComponent(jLabelNOME4))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelNOME)
+                                    .addComponent(jLabelNOME2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabelNOME4, javax.swing.GroupLayout.Alignment.LEADING))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -170,23 +173,24 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                                     .addComponent(jLabelNOME1)
                                     .addGap(18, 18, 18)
                                     .addComponent(txtNome1))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtNome4)
-                                        .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(27, 27, 27)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabelNOME5)
-                                        .addComponent(jLabelNOME3))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabelNOME7)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelNOME7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txtNome4)
+                                            .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(41, 41, 41)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelNOME3)
+                                            .addComponent(jLabelNOME5))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,20 +202,22 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                     .addComponent(jLabelNOME1)
                     .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNOME2)
-                    .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNOME5)
-                    .addComponent(txtNome5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelNOME4)
-                        .addComponent(txtNome4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelNOME3)
-                        .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNOME2)
+                            .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelNOME5))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelNOME4)
+                            .addComponent(txtNome4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelNOME3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jComboBoxEstados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelNOME7)
                             .addComponent(txtNome7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,9 +229,9 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(48, Short.MAX_VALUE))
+                    .addComponent(btnRemover)
+                    .addComponent(btnAtualizar))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,10 +257,6 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome4ActionPerformed
 
-    private void txtNome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome5ActionPerformed
-
     private void txtNome6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome6ActionPerformed
@@ -267,19 +269,24 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnRemoverActionPerformed
+
+    private void jComboBoxEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxEstadosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnRemover;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxEstados;
     private javax.swing.JLabel jLabelNOME;
     private javax.swing.JLabel jLabelNOME1;
     private javax.swing.JLabel jLabelNOME2;
@@ -294,7 +301,6 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtNome3;
     private javax.swing.JTextField txtNome4;
-    private javax.swing.JTextField txtNome5;
     private javax.swing.JTextField txtNome6;
     private javax.swing.JTextField txtNome7;
     // End of variables declaration//GEN-END:variables
