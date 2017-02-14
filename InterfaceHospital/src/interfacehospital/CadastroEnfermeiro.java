@@ -53,7 +53,6 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
         jComboBoxLotacao2 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jComboBoxRegimeTrabalho = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
         txtEndereco = new javax.swing.JTextField();
         jLabelNOME4 = new javax.swing.JLabel();
         jLabelNOME5 = new javax.swing.JLabel();
@@ -161,10 +160,6 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("CADASTRO DE ENFERMEIROS");
-
         jLabelNOME4.setText("CPF:");
 
         jLabelNOME5.setText("CIDADE:");
@@ -243,22 +238,17 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jComboBoxRegimeTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addComponent(jLabel8)
-                            .addComponent(jLabelNOME2))
-                        .addGap(129, 129, 129))
+                            .addComponent(jLabelNOME2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelNOME)
-                            .addComponent(jLabelNOME1))
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(102, 102, 102))))
+                            .addComponent(jLabelNOME1))))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNOME)
                     .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -292,7 +282,7 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
                     .addComponent(jComboBoxRegimeTrabalho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrar)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -357,7 +347,6 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBoxLotacao2;
     private javax.swing.JComboBox<String> jComboBoxRegimeTrabalho;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
