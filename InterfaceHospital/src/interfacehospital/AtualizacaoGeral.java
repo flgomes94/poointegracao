@@ -57,21 +57,23 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
-            }
-        });
-
         jLabelNOME.setText("NOME:");
 
         jLabelNOME1.setText("ENDEREÇO:");
 
         jLabelNOME2.setText("RG:");
 
-        txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
+        try {
+            txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        try {
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabelNOME7.setText("CPF:");
 
@@ -93,11 +95,6 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
         jComboBoxEstados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxEstadosActionPerformed(evt);
-            }
-        });
-        jComboBoxEstados.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jComboBoxEstadosKeyPressed(evt);
             }
         });
 
@@ -203,10 +200,6 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
-
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAtualizarActionPerformed
@@ -214,10 +207,6 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
     private void jComboBoxEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxEstadosActionPerformed
-
-    private void jComboBoxEstadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxEstadosKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxEstadosKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

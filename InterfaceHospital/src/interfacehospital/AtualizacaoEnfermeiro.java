@@ -73,9 +73,17 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
 
         jLabelNOME2.setText("RG:");
 
-        txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
+        try {
+            txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        try {
+            txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         jLabelNOME7.setText("CPF:");
 
@@ -99,29 +107,14 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
                 jComboBoxEstadosActionPerformed(evt);
             }
         });
-        jComboBoxEstados.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jComboBoxEstadosKeyPressed(evt);
-            }
-        });
 
         jComboBoxRegimeTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "12 HRS", "24 HRS" }));
         jComboBoxRegimeTrabalho.setToolTipText("");
-        jComboBoxRegimeTrabalho.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jComboBoxRegimeTrabalhoKeyPressed(evt);
-            }
-        });
 
         jLabel9.setText("REGIME DE TRABALHO:");
 
         jComboBoxLotacao2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Emergência", "Enfermaria", "Apartamentos" }));
         jComboBoxLotacao2.setToolTipText("");
-        jComboBoxLotacao2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jComboBoxLotacao2KeyPressed(evt);
-            }
-        });
 
         jLabel8.setText("LOTAÇÃO:");
 
@@ -253,18 +246,6 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
     private void jComboBoxEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxEstadosActionPerformed
-
-    private void jComboBoxEstadosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxEstadosKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxEstadosKeyPressed
-
-    private void jComboBoxRegimeTrabalhoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxRegimeTrabalhoKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxRegimeTrabalhoKeyPressed
-
-    private void jComboBoxLotacao2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBoxLotacao2KeyPressed
-
-    }//GEN-LAST:event_jComboBoxLotacao2KeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
