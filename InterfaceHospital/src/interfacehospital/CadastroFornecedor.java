@@ -7,7 +7,7 @@ package interfacehospital;
 
 /**
  *
- * @author Samuel R
+ * @author Samuel 
  */
 public class CadastroFornecedor extends javax.swing.JInternalFrame {
 
