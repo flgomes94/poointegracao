@@ -30,11 +30,11 @@ public class ConsultaEnfermeiro extends javax.swing.JInternalFrame {
  
     private void jComboConsultaEnfActionPerformed(java.awt.event.ActionEvent evt) {                                                 
        jPanelConsultaEnf.removeAll();
-        if(this.jComboConsultaEnf.getSelectedItem()== "Lotação")
+        if(this.jComboLotacao.getSelectedItem()== "Lotação")
         {
        
         }
-        if(this.jComboConsultaEnf.getSelectedItem() == "Carga Horária")
+        if(this.jComboLotacao.getSelectedItem() == "Carga Horária")
         {
        
         }
@@ -53,7 +53,7 @@ public class ConsultaEnfermeiro extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabelSalarioTotal = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboConsultaEnf = new javax.swing.JComboBox<>();
+        jComboLotacao = new javax.swing.JComboBox<>();
 
         jTableConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,7 +77,12 @@ public class ConsultaEnfermeiro extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel2.setText("Escolha sua opção de consulta de enfermeiro:");
 
-        jComboConsultaEnf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lotação", "Carga Horária" }));
+        jComboLotacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apartamento", "Emergência", "Enfermaria" }));
+        jComboLotacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboLotacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelConsultaEnfLayout = new javax.swing.GroupLayout(jPanelConsultaEnf);
         jPanelConsultaEnf.setLayout(jPanelConsultaEnfLayout);
@@ -93,12 +98,12 @@ public class ConsultaEnfermeiro extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelSalarioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelConsultaEnfLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboConsultaEnf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboLotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -107,7 +112,7 @@ public class ConsultaEnfermeiro extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConsultaEnfLayout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addGroup(jPanelConsultaEnfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboConsultaEnf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboLotacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,9 +141,25 @@ public class ConsultaEnfermeiro extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboLotacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboLotacaoActionPerformed
+
+        if(this.jComboLotacao.getSelectedItem().equals("Apartamento"))
+        {
+            
+        }
+        if(this.jComboLotacao.getSelectedItem().equals("Emergência"))
+        {
+        }
+
+        if(this.jComboLotacao.getSelectedItem().equals("Enfermaria"))
+        {
+        }
+        
+    }//GEN-LAST:event_jComboLotacaoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboConsultaEnf;
+    private javax.swing.JComboBox<String> jComboLotacao;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelSalarioTotal;

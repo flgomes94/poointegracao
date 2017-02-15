@@ -48,6 +48,8 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
         btnAtualizar = new javax.swing.JButton();
         btnRemover = new javax.swing.JButton();
         jComboBoxEstados = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableConsEnf = new javax.swing.JTable();
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +141,16 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
             }
         });
 
+        jTableConsEnf.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "CNPJ", "Nome"
+            }
+        ));
+        jScrollPane2.setViewportView(jTableConsEnf);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,13 +201,16 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBoxEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                                            .addComponent(jComboBoxEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNOME)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,7 +246,7 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRemover)
                     .addComponent(btnAtualizar))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
 
         pack();
@@ -296,6 +311,8 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelNOME6;
     private javax.swing.JLabel jLabelNOME7;
     private javax.swing.JLabel jLabelNOME8;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableConsEnf;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;
     private javax.swing.JTextField txtNome2;

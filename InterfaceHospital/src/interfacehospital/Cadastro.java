@@ -34,7 +34,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
 
         painelEscolhaCadastro.setBackground(new java.awt.Color(0, 102, 102));
 
-        jComboCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Enfermeiro", "Fornecedor", "Maqueiro", "Serviços Gerais", "Vigilante" }));
+        jComboCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Enfermeiro", "Fornecedor", "Maqueiro", "Medicamentos", "Serviços Gerais", "Vigilante" }));
         jComboCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboCadastroActionPerformed(evt);
@@ -159,6 +159,19 @@ public class Cadastro extends javax.swing.JInternalFrame {
             }
         }
         
+        if(this.jComboCadastro.getSelectedItem() == "Medicamentos")
+        {
+            CadastroMedicamentos CadMedicamentos = new CadastroMedicamentos();
+            CadMedicamentos.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
+       
+            try {
+                PainelCad.add(CadMedicamentos);
+                CadMedicamentos.setMaximum(true);
+                CadMedicamentos.setVisible(true);
+            } catch (Exception e) {
+            }
+        }
+        
         
         if(this.jComboCadastro.getSelectedItem() == "Serviços Gerais")
         {
@@ -195,8 +208,6 @@ public class Cadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel painelCadastro;
-    private javax.swing.JPanel painelCadastro1;
     private javax.swing.JPanel painelEscolhaCadastro;
     // End of variables declaration//GEN-END:variables
 }

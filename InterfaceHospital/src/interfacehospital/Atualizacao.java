@@ -39,7 +39,7 @@ public class Atualizacao extends javax.swing.JInternalFrame {
 
         painelEscolhaAtualizacao.setBackground(new java.awt.Color(0, 102, 102));
 
-        jComboConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Enfermeiro", "Fornecedor", "Maqueiro", "Serviços Gerais", "Vigilante" }));
+        jComboConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Enfermeiro", "Fornecedor", "Maqueiro", "Medicamentos", "Serviços Gerais", "Vigilante" }));
         jComboConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboConsultaActionPerformed(evt);
@@ -166,6 +166,20 @@ public class Atualizacao extends javax.swing.JInternalFrame {
             } catch (Exception e) {
             }
         }
+
+        if(this.jComboConsulta.getSelectedItem().equals("Medicamentos"))
+        {
+            AtualizacaoMedicamentos AtuMedicamentos = new AtualizacaoMedicamentos();
+            AtuMedicamentos.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
+
+            try {
+                PainelAtualizacao.add(AtuMedicamentos);
+                AtuMedicamentos.setMaximum(true);
+                AtuMedicamentos.setVisible(true);
+            } catch (Exception e) {
+            }
+        }
+
 
         if(this.jComboConsulta.getSelectedItem().equals("Serviços Gerais"))
         {
