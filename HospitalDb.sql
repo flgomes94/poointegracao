@@ -7,8 +7,8 @@ use Hospital;
 create table Funcionarios(
 ID int not null auto_increment,
 Nome varchar (50) not null,
-CPF varchar (30) not null,
-RG varchar (30) not null,
+CPF varchar (30) not null unique,
+RG varchar (30) not null unique,
 Telefone varchar (30) default '00 0000-0000',
 cargo varchar (30) not null,
 Salario double not null,
