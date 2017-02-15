@@ -11,6 +11,9 @@ public class Funcionario {
    String endereco;
    String cidade;
 
+    public Funcionario() {
+    }
+    
     public String getNome() {
         return nome;
     }

@@ -13,6 +13,9 @@ public class Fornecedor {
     String n;
     String responsavel;
 
+    public Fornecedor() {
+    }
+    
     public String getCnpj() {
         return cnpj;
     }

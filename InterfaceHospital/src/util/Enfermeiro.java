@@ -5,6 +5,9 @@ public class Enfermeiro extends Funcionario {
     String lotacao;
     String regime;
 
+    public Enfermeiro() {
+    }
+
     public String getLotacao() {
         return lotacao;
     }
