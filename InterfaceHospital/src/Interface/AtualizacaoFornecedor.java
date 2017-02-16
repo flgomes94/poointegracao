@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import Model.Fornecedor;
 import Repository.AlteracaoDAO;
 import Repository.RemoverDAO;
 import java.sql.ResultSet;
@@ -155,6 +156,11 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                 "CNPJ", "Nome"
             }
         ));
+        jTableConsEnf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableConsEnfMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableConsEnf);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -208,7 +214,7 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jComboBoxEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -303,6 +309,23 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
     private void jComboBoxEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxEstadosActionPerformed
+
+    private void jTableConsEnfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsEnfMouseClicked
+        int selecionado = jTableConsEnf.getSelectedRow();
+        String id = jTableConsEnf.getModel().getValueAt(selecionado, 0).toString();
+        AlteracaoDAO alteracao = new AlteracaoDAO();
+        Fornecedor fornecedor = new Fornecedor();
+        fornecedor = alteracao.buscaforid(id);
+        txtNome.setText(fornecedor.getNome());
+        txtNome1.setText(fornecedor.getCnpj());
+        txtNome2.setText(fornecedor.getCidade());
+        txtNome4.setText(fornecedor.getBairro());
+        txtNome3.setText(fornecedor.getCep());
+        txtNome6.setText(fornecedor.getLogradouro());
+        txtNome7.setText(fornecedor.getN());
+        
+        jComboBoxEstados.setSelectedItem(fornecedor.getEstado());
+    }//GEN-LAST:event_jTableConsEnfMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
