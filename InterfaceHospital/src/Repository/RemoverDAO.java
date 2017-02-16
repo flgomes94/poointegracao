@@ -8,6 +8,7 @@ package Repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,16 +16,33 @@ import java.sql.SQLException;
  */
 public class RemoverDAO {
 
-    public void removerFuncionario(int id) throws SQLException {
-
+    public void removerFuncionario(int id){
+        
         Connection conexao = DbConexao.obterConexao();
-
         PreparedStatement stmt = null;
-
-        stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE ID=" + id);
-
-        stmt.executeUpdate();
-
+        
+        try{
+        
+            stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE ID=" + id);
+            stmt.executeUpdate();
+            
+        }catch(SQLException e){
+            
+            JOptionPane.showMessageDialog(null, "Funcionario com fornecedor em aberto.");
+            
+            try{
+                
+                stmt = conexao.prepareStatement("update Fornecedor SET Responsavel=-1");
+                stmt.executeUpdate();
+                stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE ID=" + id);
+                stmt.executeUpdate();
+                
+            }catch(SQLException ee){
+                
+                JOptionPane.showMessageDialog(null,"Erro: " + ee);
+            }
+        }
+        
         DbConexao.fecharConexao();
     }
 
