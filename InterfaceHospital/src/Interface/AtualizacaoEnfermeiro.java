@@ -7,6 +7,7 @@ package Interface;
 
 import Model.Enfermeiro;
 import Repository.AlteracaoDAO;
+import Repository.RemoverDAO;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -272,8 +273,14 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         
+        RemoverDAO remove = new RemoverDAO();
         
+        int selecionado = jTableAtuEnf.getSelectedRow();
+        String id = jTableAtuEnf.getModel().getValueAt(selecionado, 0).toString();
         
+        System.out.println(id);
+        remove.removerFuncionario(Integer.parseInt(id));
+                
     }//GEN-LAST:event_btnRemoverActionPerformed
 
     private void jComboBoxEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstadosActionPerformed

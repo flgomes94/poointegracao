@@ -6,6 +6,7 @@
 package Interface;
 
 import Repository.AlteracaoDAO;
+import Repository.RemoverDAO;
 import java.sql.ResultSet;
 import net.proteanit.sql.DbUtils;
 

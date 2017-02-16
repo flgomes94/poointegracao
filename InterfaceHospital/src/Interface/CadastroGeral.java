@@ -240,11 +240,8 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
                     
                     if(chave == 0){
                         adc.setCpf(cpftest);
-                        try {
-                            cadastro.cadastrarFuncionario(adc);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(CadastroGeral.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        cadastro.cadastrarFuncionario(adc);
+                        
                         txtNome.setText("");
                         txtCpf.setValue(null);
                         txtRg.setValue(null);
