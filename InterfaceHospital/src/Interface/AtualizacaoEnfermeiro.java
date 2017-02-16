@@ -278,9 +278,7 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         int selecionado = jTableAtuEnf.getSelectedRow();
         String id = jTableAtuEnf.getModel().getValueAt(selecionado, 0).toString();
         
-        System.out.println(id);
         remove.removerFuncionario(Integer.parseInt(id));
-        
         atualizatabela();
                 
     }//GEN-LAST:event_btnRemoverActionPerformed

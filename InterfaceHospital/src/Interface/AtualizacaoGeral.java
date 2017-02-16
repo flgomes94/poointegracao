@@ -8,6 +8,7 @@ package Interface;
 import Model.Enfermeiro;
 import Model.Funcionario;
 import Repository.AlteracaoDAO;
+import Repository.RemoverDAO;
 import java.sql.ResultSet;
 import net.proteanit.sql.DbUtils;
 
@@ -230,7 +231,13 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         
+        RemoverDAO remove = new RemoverDAO();
         
+        int selecionado = jTable1.getSelectedRow();
+        String id = jTable1.getModel().getValueAt(selecionado, 0).toString();
+        
+        remove.removerFuncionario(Integer.parseInt(id));
+        atualizatabela();
         
     }//GEN-LAST:event_btnRemoverActionPerformed
 

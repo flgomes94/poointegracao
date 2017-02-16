@@ -302,7 +302,12 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         
+        int selecionado = jTableConsEnf.getSelectedRow();
+        String cnpj = jTableConsEnf.getModel().getValueAt(selecionado, 0).toString();
         
+        RemoverDAO remover = new RemoverDAO();
+        remover.removerFornecedor(cnpj);
+        atualizatabela();
         
     }//GEN-LAST:event_btnRemoverActionPerformed
 

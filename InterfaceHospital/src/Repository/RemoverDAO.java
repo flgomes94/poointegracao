@@ -16,46 +16,47 @@ import javax.swing.JOptionPane;
  */
 public class RemoverDAO {
 
-    public void removerFuncionario(int id){
-        
+    public void removerFuncionario(int id) {
+
         Connection conexao = DbConexao.obterConexao();
         PreparedStatement stmt = null;
-        
-        try{
-        
+
+        try {
+
             stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE ID=" + id);
             stmt.executeUpdate();
-            
-        }catch(SQLException e){
-            
+
+        } catch (SQLException e) {
+
             JOptionPane.showMessageDialog(null, "Funcionario com fornecedor em aberto.");
-            
-            try{
-                
+
+            try {
+
                 stmt = conexao.prepareStatement("update Fornecedor SET Responsavel=-1 WHERE Responsavel =" + id);
                 stmt.executeUpdate();
                 stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE ID=" + id);
                 stmt.executeUpdate();
-                
-            }catch(SQLException ee){
-                
-                JOptionPane.showMessageDialog(null,"Erro: " + ee);
+
+            } catch (SQLException ee) {
+
+                JOptionPane.showMessageDialog(null, "Erro: " + ee);
             }
         }
-        
+
         DbConexao.fecharConexao();
     }
 
-    public void removerFornecedor(String cnpj) throws SQLException {
+    public void removerFornecedor(String cnpj){
 
         Connection conexao = DbConexao.obterConexao();
-
         PreparedStatement stmt = null;
 
-        stmt = conexao.prepareStatement("DELETE FROM Fornecedor WHERE CNPJ='" + cnpj + "'");
+        try {
+            stmt = conexao.prepareStatement("DELETE FROM Fornecedor WHERE CNPJ='" + cnpj + "'");
+            stmt.executeUpdate();
+        } catch (SQLException e) {
 
-        stmt.executeUpdate();
-
+        }
         DbConexao.fecharConexao();
     }
 
