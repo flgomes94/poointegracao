@@ -84,7 +84,7 @@ public class AlteracaoDAO {
         Fornecedor fornecedor=new Fornecedor();
         conexao = DbConexao.obterConexao();
         String sql;
-        sql = "SELECT * FROM Fornecedor WHERE ID = ?" ;
+        sql = "SELECT * FROM Fornecedor WHERE CNPJ = ?" ;
         try{
             pst=conexao.prepareStatement(sql);
             pst.setString(1, id);
