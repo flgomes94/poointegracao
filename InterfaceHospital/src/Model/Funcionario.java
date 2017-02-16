@@ -1,6 +1,7 @@
 
 package Model;
 
+
 public class Funcionario {    
    String nome;
    String cpf;
@@ -10,8 +11,17 @@ public class Funcionario {
    String salario;
    String endereco;
    String cidade;
+   String estado;
 
     public Funcionario() {
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
     public String getNome() {

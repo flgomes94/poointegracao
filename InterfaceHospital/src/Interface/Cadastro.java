@@ -108,10 +108,10 @@ public class Cadastro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboCadastroActionPerformed
-        PainelCad.removeAll();
+         PainelCad.removeAll();
         if(this.jComboCadastro.getSelectedItem().equals("Administrador"))
         {
-            CadastroGeral CadGeral = new CadastroGeral();
+            CadastroGeral CadGeral = new CadastroGeral("Administrador");
             CadGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
        
             try {
@@ -124,7 +124,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
         if(this.jComboCadastro.getSelectedItem() == "Enfermeiro")
         {
             
-            CadastroEnfermeiro CadEnfermeiros = new CadastroEnfermeiro();
+            CadastroEnfermeiro CadEnfermeiros = new CadastroEnfermeiro("Enfermeiro");
             CadEnfermeiros.setBorder(new EmptyBorder(new Insets(0,0,0,0)));       
             try {
                 PainelCad.add(CadEnfermeiros);
@@ -151,7 +151,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
         
         if(this.jComboCadastro.getSelectedItem() == "Maqueiro")
         {
-            CadastroGeral CadGeral = new CadastroGeral();
+            CadastroGeral CadGeral = new CadastroGeral("Maqueiro");
             CadGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
        
             try {
@@ -178,7 +178,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
         
         if(this.jComboCadastro.getSelectedItem() == "Serviços Gerais")
         {
-            CadastroGeral CadGeral = new CadastroGeral();
+            CadastroGeral CadGeral = new CadastroGeral("Serviços Gerais");
             CadGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
        
             try {
@@ -191,7 +191,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
             
         if(this.jComboCadastro.getSelectedItem() == "Vigilante")
         {
-         CadastroGeral CadGeral = new CadastroGeral();
+         CadastroGeral CadGeral = new CadastroGeral("Vigilante");
             CadGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
        
             try {
@@ -201,6 +201,7 @@ public class Cadastro extends javax.swing.JInternalFrame {
             } catch (Exception e) {
             }    
         }
+    
     }//GEN-LAST:event_jComboCadastroActionPerformed
 
 

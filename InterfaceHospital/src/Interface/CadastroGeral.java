@@ -5,16 +5,20 @@
  */
 package Interface;
 
-/**
- *
- * @author Walber
- */
+import Model.Funcionario;
+import Model.Verificador;
+import Repository.CadastrarDAO;
+import javax.swing.JOptionPane;
+
 public class CadastroGeral extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastroGeral
      */
-    public CadastroGeral() {
+   String cargo;
+   
+    public CadastroGeral(String cargo) {
+        this.cargo = cargo;
                 ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
         initComponents();
     }
@@ -195,6 +199,65 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {                                          
+       
+       Funcionario adc = new Funcionario();
+       Verificador test = new Verificador();
+       CadastrarDAO cadastro = new CadastrarDAO();
+       
+       adc.setNome(txtNome.getText());
+       adc.setRg(txtRg.getText());
+       adc.setCpf(txtCpf.getText());
+       adc.setEndereco(txtEndereço.getText());
+       adc.setCidade(txtCidade.getText());
+       adc.setSalario(txtSalario.getText());
+       adc.setCargo(cargo);
+       adc.setEstado((String) jComboBoxEstado.getSelectedItem());
+       
+       String cpftest = adc.getCpf().replaceAll("[^0-9]","");
+       if(adc.getNome().length()== 0 ||adc.getCpf().length()==0 
+           || adc.getCidade().length()==0 || 
+           adc.getEndereco().length()==0 || adc.getRg().length()==0
+           || adc.getSalario().length()==0 || adc.getTelefone().length()==0
+         ){
+            
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
+        } else{ if(test.VerificaCpf(cpftest)== true){    
+                    if( cadastro.VerificaCpfExistente(cpftest)== true){
+                        String titulo = "Confirmação de dados";
+                        String msg = adc.toString();
+
+                        int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
+
+
+                        if(chave == 0){
+                            adc.setCpf(cpftest);
+                            cadastro.cadastrarFuncionario(adc);
+                            txtNome.setText("");
+                            txtCpf.setValue(null);
+                            txtRg.setValue(null);
+                            txtCidade.setText("");
+                            txtSalario.setText("");
+                            txtEndereço.setText("");
+
+
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Cadastro não efetuado!");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
+                }
+            
+            }                                   
+            else{
+                JOptionPane.showMessageDialog(null, "CPF informado invalido!\nVerifique os caracteres digitados e tente novamente");
+            }
+        
+           
+       }
+    }                    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;

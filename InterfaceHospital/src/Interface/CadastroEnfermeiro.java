@@ -5,6 +5,11 @@
  */
 package Interface;
 
+import Model.Enfermeiro;
+import Model.Verificador;
+import Repository.CadastrarDAO;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Walber
@@ -14,7 +19,11 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
     /**
      * Creates new form CadastroEnfermeiro
      */
-    public CadastroEnfermeiro() {
+    String cargo;
+    
+    public CadastroEnfermeiro(String cargo) {
+        this.cargo = cargo;
+        
                 ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
         initComponents();
     }
@@ -333,7 +342,66 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
     private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome1ActionPerformed
+private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {                                          
+       Enfermeiro adc = new Enfermeiro();
+       Verificador test = new Verificador();
+       CadastrarDAO cadastro = new CadastrarDAO();
+       
+       adc.setNome(txtNome1.getText());
+       adc.setRg(txtRG.getText());
+       adc.setCpf(txtCPF.getText());
+       adc.setEndereco(txtEndereco.getText());
+       adc.setCidade(txtCidade.getText());
+       adc.setSalario(txtSalario.getText());
+       adc.setCargo(cargo);
+       adc.setLotacao((String) jComboBoxLotacao2.getSelectedItem());
+       adc.setRegime((String) jComboBoxRegimeTrabalho.getSelectedItem());
+       adc.setEstado((String) jComboBoxEstados.getSelectedItem());
+       
+       String cpftest = adc.getCpf().replaceAll("[^0-9]","");
+       if(adc.getNome().length()== 0 ||adc.getCpf().length()==0 
+           || adc.getCidade().length()==0 || 
+           adc.getEndereco().length()==0 || adc.getRg().length()==0
+           || adc.getSalario().length()==0 || adc.getTelefone().length()==0
+         ){
+            
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
+        } else{ if(test.VerificaCpf(cpftest)== true){    
+                    if( cadastro.VerificaCpfExistente(cpftest)== true){
+                        String titulo = "Confirmação de dados";
+                        String msg = adc.toString();
 
+                        int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
+
+
+                        if(chave == 0){
+                            adc.setCpf(cpftest);
+                            cadastro.CadastrarEnfermeiro(adc);
+                            txtNome1.setText("");
+                            txtCPF.setValue(null);
+                            txtRG.setValue(null);
+                            txtCidade.setText("");
+                            txtSalario.setText("");
+                            txtEndereco.setText("");
+
+
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Cadastro não efetuado!");
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
+                }
+            
+            }                                   
+            else{
+                JOptionPane.showMessageDialog(null, "CPF informado invalido!\nVerifique os caracteres digitados e tente novamente");
+            }
+        
+           
+       }
+    }                                         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
