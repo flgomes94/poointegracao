@@ -17,7 +17,8 @@ public class DbConexao {
 
     public static String status = "Não conectou...";
 
-    public DbConexao() {}
+    public DbConexao() {
+    }
 
     public static java.sql.Connection obterConexao() {
 
@@ -45,17 +46,17 @@ public class DbConexao {
                 status = ("STATUS--->Não foi possivel realizar conexão.");
 
             }
-            
-            System.out.println("DB conectado.");
+
+            System.out.println("DB conectado."); //para teste
             return connection;
         } catch (ClassNotFoundException e) {
 
-            System.out.println("Driver nao encontrado.");
+            System.out.println("Driver nao encontrado."); //para teste
 
             return null;
         } catch (SQLException e) {
 
-            System.out.println("DB nao conectado.");
+            System.out.println("DB nao conectado."); //para teste
 
             return null;
         }
@@ -66,7 +67,7 @@ public class DbConexao {
         try {
 
             DbConexao.obterConexao().close();
-            System.out.println("DB desconectado.");
+            System.out.println("DB desconectado."); //para teste
             return true;
         } catch (SQLException e) {
 
