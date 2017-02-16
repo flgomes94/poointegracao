@@ -291,70 +291,7 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBoxEstadoKeyPressed
 
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
-       Fornecedor adc = new Fornecedor();
-       Verificador test = new Verificador();
-       CadastrarDAO cadastro = new CadastrarDAO();
        
-       adc.setBairro(txtBairro.getText());
-       adc.setCep(txtCEP.getText());
-       adc.setCidade(txtCidade.getText());
-       adc.setCnpj(txtCnpj.getText());
-       adc.setEstado((String) jComboBoxEstado.getSelectedItem());
-       adc.setLogradouro(txtLogradouro.getText());
-       adc.setN(txtNumero.getText());
-       adc.setNome(txtNomeFornecedor.getText());
-      // adc.setResponsavel((String) jComboBoxResponsavel.getSelectedItem());
-       
-      
-       
-       String cnpjtest = adc.getCnpj().replaceAll("[^0-9]","");
-       if(adc.getNome().length()== 0 ||adc.getBairro().length()==0
-               || adc.getCep().length()==0|| adc.getCidade().length()==0
-               || adc.getCnpj().length()==0||adc.getEstado().length()==0
-               || adc.getLogradouro().length()==0||adc.getN().length()==0){
-            
-            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
-        } else{ if(test.VerificaCnpj(cnpjtest)== true){    
-           
-                if( cadastro.VerificaCnpjExistente(cnpjtest)== true){
-                    String titulo = "Confirmação de dados";
-                    String msg = adc.toString();
-                    
-                    int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
-                    
-                    
-                    if(chave == 0){
-                        adc.setCnpj(cnpjtest);
-                  
-                        cadastro.CadastrarFornecedor(adc);
-                       
-                        
-                        txtNomeFornecedor.setText("");
-                        txtCEP.setText("");
-                        txtCnpj.setText("");
-                        txtCidade.setText("");
-                        txtLogradouro.setText("");
-                        txtNumero.setText("");
-                        
-                        
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Cadastro não efetuado!");
-                    }
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
-                }
-       
-            
-            }                                   
-            else{
-                JOptionPane.showMessageDialog(null, "CPF informado invalido!\nVerifique os caracteres digitados e tente novamente");
-            }
-        
-           
-       }
-        
     }//GEN-LAST:event_btnCadastrarMouseClicked
 
     private void jComboBoxResponsavelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxResponsavelMouseClicked

@@ -11,7 +11,6 @@ import Model.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
@@ -26,7 +25,7 @@ public class CadastrarDAO {
         boolean x = true;
         conexao = DbConexao.obterConexao();
         String sql;
-        sql = "SELECT * FROM Funcionario WHERE CPF = ?";
+        sql = "SELECT * FROM Funcionarios WHERE CPF = ?";
         try{
             pst = conexao.prepareStatement(sql);
             pst.setString(1, cpftest);
@@ -60,39 +59,6 @@ public class CadastrarDAO {
         return x;
     }
     
-/*
-    public boolean VerificaCpfExistente(String cpftest) throws SQLException {
-        boolean result = true;
-        Connection conexao = DbConexao.obterConexao();
-       
-        PreparedStatement stmt = null;
-        
-        stmt = conexao.prepareStatement("SELECT * FROM Funcionario WHERE CPF = ?"+cpftest+"");
-        ResultSet rs = stmt.executeQuery();
-        
-	if(rs.next()){
-            result = false;
-        }
-	stmt.close();
-	return result;
-    }
-    
-    public boolean VerificaCnpjExistente(String cnpj)throws SQLException{
-        boolean result = true;
-        Connection conexao = DbConexao.obterConexao();
-       
-        PreparedStatement stmt = null;
-        
-        stmt = conexao.prepareStatement("SELECT * FROM Fornecedor WHERE CNPJ = ?"+cnpj+"");
-        ResultSet rs = stmt.executeQuery();
-        
-	if(rs.next()){
-            result = false;
-        }
-	stmt.close();
-	return result;
-}
-     */
 
     public void cadastrarFuncionario(Funcionario adc){
        conexao = DbConexao.obterConexao();
@@ -109,7 +75,10 @@ public class CadastrarDAO {
             pst.setString(7,adc.getEndereco());
             pst.setString(8,adc.getEstado());
             pst.setString(9, adc.getCidade());
-            rs = pst.executeQuery();
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+            
+            rs.close();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -165,4 +134,4 @@ public class CadastrarDAO {
         }
     }
     
-  }
+}
