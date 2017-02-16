@@ -5,6 +5,12 @@
  */
 package Interface;
 
+import Model.Enfermeiro;
+import Model.Funcionario;
+import Repository.AlteracaoDAO;
+import java.sql.ResultSet;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Samuel R
@@ -14,9 +20,13 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
     /**
      * Creates new form AtualizacaoGeral
      */
-    public AtualizacaoGeral() {
+    String tipo;
+    public AtualizacaoGeral(String atualizacao) {
          ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
         initComponents();
+        tipo = atualizacao;
+        atualizatabela();
+        
     }
 
     /**
@@ -57,6 +67,11 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
                 "Código", "Nome"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jLabelNOME.setText("Nome:");
@@ -65,12 +80,14 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
 
         jLabelNOME2.setText("RG:");
 
+        txtRG.setEditable(false);
         try {
             txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
+        txtCPF.setEditable(false);
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
@@ -217,6 +234,21 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnRemoverActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int selecionado = jTable1.getSelectedRow();
+        String id = jTable1.getModel().getValueAt(selecionado, 0).toString();
+        AlteracaoDAO alteracao = new AlteracaoDAO();
+        Funcionario funcionario = new Funcionario();
+        funcionario = alteracao.buscaenfid(id);
+        txtNome.setText(funcionario.getNome());
+        txtEndereco.setText(funcionario.getEndereco());
+        txtRG.setText(funcionario.getRg());
+        txtCPF.setText(funcionario.getCpf());
+        txtCidade.setText(funcionario.getCidade());
+        txtSalario.setText(funcionario.getSalario());
+        jComboBoxEstados.setSelectedItem(funcionario.getEstado());
+    }//GEN-LAST:event_jTable1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
@@ -240,4 +272,13 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtRG;
     private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
+
+private void atualizatabela() {
+        AlteracaoDAO dao = new AlteracaoDAO();
+        System.out.println(tipo);
+        ResultSet rs = dao.busca(tipo);
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+    }
+
+
 }

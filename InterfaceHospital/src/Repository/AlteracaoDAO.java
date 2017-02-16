@@ -16,9 +16,10 @@ public class AlteracaoDAO {
     public ResultSet buscaenfermeiros(){
         conexao = DbConexao.obterConexao();
         String sql;
-        sql = "SELECT id as Código, nome as NOME from Funcionarios";
+        sql = "SELECT id as Código, nome as NOME from Funcionarios where cargo=?";
         try{
             pst = conexao.prepareStatement(sql);
+            pst.setString(1, "Enfermeiro");
             rs = pst.executeQuery();
             
         }catch(Exception e){
@@ -128,6 +129,22 @@ public class AlteracaoDAO {
             JOptionPane.showMessageDialog(null, e);
         }
         DbConexao.fecharConexao();
+    }
+
+    public ResultSet busca(String tipo) {
+        conexao = DbConexao.obterConexao();
+        String sql;
+        sql = "SELECT id as Código, nome as NOME from Funcionarios where cargo = ?";
+        try{
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, tipo);
+            rs = pst.executeQuery();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        return rs;
     }
     
 }

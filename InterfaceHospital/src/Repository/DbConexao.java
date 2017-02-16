@@ -33,7 +33,7 @@ public class DbConexao {
             String mydatabase = "Hospital";
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
             String username = "root";
-            String password = "vertrigo";
+            String password = "160994";
 
             connection = DriverManager.getConnection(url, username, password);
 

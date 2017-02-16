@@ -118,7 +118,8 @@ public class Atualizacao extends javax.swing.JInternalFrame {
         PainelAtualizacao.removeAll();
         if(this.jComboConsulta.getSelectedItem().equals("Administrador"))
         {
-            AtualizacaoGeral AtuGeral = new AtualizacaoGeral();
+            String x = jComboConsulta.getSelectedItem().toString();
+            AtualizacaoGeral AtuGeral = new AtualizacaoGeral(x);
             AtuGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
 
             try {
@@ -156,7 +157,8 @@ public class Atualizacao extends javax.swing.JInternalFrame {
 
         if(this.jComboConsulta.getSelectedItem().equals("Maqueiro"))
         {
-            AtualizacaoGeral AtuGeral = new AtualizacaoGeral();
+            String x = jComboConsulta.getSelectedItem().toString();
+            AtualizacaoGeral AtuGeral = new AtualizacaoGeral(x);
             AtuGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
 
             try {
@@ -183,7 +185,8 @@ public class Atualizacao extends javax.swing.JInternalFrame {
 
         if(this.jComboConsulta.getSelectedItem().equals("Serviços Gerais"))
         {
-            AtualizacaoGeral AtuGeral = new AtualizacaoGeral();
+            String x = jComboConsulta.getSelectedItem().toString();
+            AtualizacaoGeral AtuGeral = new AtualizacaoGeral(x);
             AtuGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
 
             try {
@@ -196,7 +199,8 @@ public class Atualizacao extends javax.swing.JInternalFrame {
 
         if(this.jComboConsulta.getSelectedItem().equals("Vigilante"))
         {
-         AtualizacaoGeral AtuGeral = new AtualizacaoGeral();
+            String x = jComboConsulta.getSelectedItem().toString();
+         AtualizacaoGeral AtuGeral = new AtualizacaoGeral(x);
             AtuGeral.setBorder(new EmptyBorder(new Insets(0,0,0,0)));
 
             try {
