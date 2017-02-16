@@ -349,13 +349,18 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNome1ActionPerformed
 
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
-      Enfermeiro adc = new Enfermeiro();
+       Enfermeiro adc = new Enfermeiro();
        Verificador test = new Verificador();
        CadastrarDAO cadastro = new CadastrarDAO();
        
+       String cpftest;
+       String rg;
+       rg = txtRG.getText().replaceAll("[^0-9]","");
+       cpftest=txtCPF.getText().replaceAll("[^0-9]","");
+       
+       adc.setCpf(cpftest);
+       adc.setRg(rg);
        adc.setNome(txtNome1.getText());
-       adc.setRg(txtRG.getText());
-       adc.setCpf(txtCPF.getText());
        adc.setEndereco(txtEndereco.getText());
        adc.setCidade(txtCidade.getText());
        adc.setSalario(txtSalario.getText());
@@ -364,10 +369,24 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
        adc.setRegime((String) jComboBoxRegimeTrabalho.getSelectedItem());
        adc.setEstado((String) jComboBoxEstados.getSelectedItem());
        
-       String cpftest;
-       cpftest=txtCPF.getText().replaceAll("[^0-9]","");
-       
-                        cadastro.CadastrarEnfermeiro(adc);
+       if(adc.getNome().length()==0||adc.getRg().length()==0||adc.getCpf().length()==0
+          ||adc.getEndereco().length()==0||adc.getCidade().length()==0||adc.getSalario().length()==0){
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+       }
+       else{
+            
+            if(test.VerificaCpf(cpftest)== false){
+                JOptionPane.showMessageDialog(null, "CPF invalido");
+            }
+            else{
+                if(cadastro.VerificaCpfExistente(cpftest)== false ){
+                     JOptionPane.showMessageDialog(null, "CPF já cadastrado");
+                }
+                else{
+                     cadastro.CadastrarEnfermeiro(adc);
+                }
+            }
+       }
     }//GEN-LAST:event_btnCadastrarMouseClicked
                                         
 
