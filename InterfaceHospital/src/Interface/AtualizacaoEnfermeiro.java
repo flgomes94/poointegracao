@@ -5,6 +5,11 @@
  */
 package Interface;
 
+import Model.Enfermeiro;
+import Repository.AlteracaoDAO;
+import java.sql.ResultSet;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Samuel R
@@ -17,6 +22,7 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
     public AtualizacaoEnfermeiro() {
          ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
         initComponents();
+        atualizatabela();
     }
 
     /**
@@ -61,6 +67,11 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
                 "Código", "Nome"
             }
         ));
+        jTableAtuEnf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAtuEnfMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableAtuEnf);
 
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -265,6 +276,20 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSalarioActionPerformed
 
+    private void jTableAtuEnfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAtuEnfMouseClicked
+        int selecionado = jTableAtuEnf.getSelectedRow();
+        String id = jTableAtuEnf.getModel().getValueAt(selecionado, 0).toString();
+        AlteracaoDAO alteracao = new AlteracaoDAO();
+        Enfermeiro enfermeiro = new Enfermeiro();
+        enfermeiro = alteracao.buscaenfid(id);
+        txtNome.setText(enfermeiro.getNome());
+        txtEndereco.setText(enfermeiro.getEndereco());
+        txtRG.setText(enfermeiro.getRg());
+        txtCPF.setText(enfermeiro.getCpf());
+        txtCidade.setText(enfermeiro.getCidade());
+        txtSalario.setText(enfermeiro.getSalario());
+    }//GEN-LAST:event_jTableAtuEnfMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
@@ -292,4 +317,10 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtRG;
     private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
+private void atualizatabela() {
+        AlteracaoDAO dao = new AlteracaoDAO();
+        ResultSet rs = dao.buscaenfermeiros();
+        jTableAtuEnf.setModel(DbUtils.resultSetToTableModel(rs));
+    }
+
 }
