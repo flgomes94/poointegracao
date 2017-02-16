@@ -8,9 +8,6 @@ package Interface;
 import Model.Funcionario;
 import Model.Verificador;
 import Repository.CadastrarDAO;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class CadastroGeral extends javax.swing.JInternalFrame {
@@ -208,7 +205,42 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
-
+       Funcionario adc = new Funcionario();
+       Verificador test = new Verificador();
+       CadastrarDAO cadastro = new CadastrarDAO();
+       
+       String cpftest;
+       String rg;
+       rg = txtRg.getText().replaceAll("[^0-9]","");
+       cpftest=txtCpf.getText().replaceAll("[^0-9]","");
+       
+       adc.setCpf(cpftest);
+       adc.setRg(rg);
+       adc.setNome(txtNome.getText());
+       adc.setEndereco(txtEndereço.getText());
+       adc.setCidade(txtCidade.getText());
+       adc.setSalario(txtSalario.getText());
+       adc.setCargo(cargo);
+       adc.setEstado((String) jComboBoxEstado.getSelectedItem());
+       
+       if(adc.getNome().length()==0||adc.getRg().length()==0||adc.getCpf().length()==0
+          ||adc.getEndereco().length()==0||adc.getCidade().length()==0||adc.getSalario().length()==0){
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+       }
+       else{
+            
+            if(test.VerificaCpf(cpftest)== false){
+                JOptionPane.showMessageDialog(null, "CPF invalido");
+            }
+            else{
+                if(cadastro.VerificaCpfExistente(cpftest)== false ){
+                     JOptionPane.showMessageDialog(null, "CPF já cadastrado");
+                }
+                else{
+                     cadastro.cadastrarFuncionario(adc);
+                }
+            }
+       }
            
     }//GEN-LAST:event_btnCadastrarMouseClicked
             

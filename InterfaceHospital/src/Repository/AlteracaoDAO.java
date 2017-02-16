@@ -3,6 +3,7 @@ package Repository;
 
 import Model.Enfermeiro;
 import Model.Fornecedor;
+import Model.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -123,6 +124,27 @@ public class AlteracaoDAO {
             pst.setString(7, enf.getRegime());
             pst.setString(8, enf.getLotacao());
             pst.setInt(9, d);
+            
+            pst.executeUpdate();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        DbConexao.fecharConexao();
+    }
+    
+    public void alterarfunc(Funcionario func,int d) {
+        conexao = DbConexao.obterConexao();
+        String sql;
+        sql = "UPDATE Funcionarios SET Nome=?, Telefone=?, Salario=?, Endereco=?, Estado=?, Cidade=? WHERE id=?" ;
+        try{
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, func.getNome());
+            pst.setString(2, func.getTelefone());
+            pst.setString(3, func.getSalario());
+            pst.setString(4, func.getEndereco());
+            pst.setString(5, func.getEstado());
+            pst.setString(6, func.getCidade());
+            pst.setInt(7, d);
             
             pst.executeUpdate();
         }catch(Exception e){

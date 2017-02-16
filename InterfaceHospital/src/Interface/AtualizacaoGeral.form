@@ -216,6 +216,7 @@
                 <Property name="text" type="java.lang.String" value="Atualizar Funcion&#xe1;rio"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAtualizarMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizarActionPerformed"/>
               </Events>
             </Component>

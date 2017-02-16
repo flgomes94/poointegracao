@@ -291,7 +291,41 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBoxEstadoKeyPressed
 
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+       Fornecedor adc = new Fornecedor();
+       Verificador test = new Verificador();
+       CadastrarDAO cadastro = new CadastrarDAO();
        
+       String cnpjtest;
+       cnpjtest=txtCnpj.getText().replaceAll("[^0-9]","");
+       
+       adc.setCnpj(cnpjtest);
+       adc.setNome(txtNomeFornecedor.getText());
+       adc.setCidade(txtCidade.getText());
+       adc.setBairro(txtBairro.getText());
+       adc.setCep(txtCEP.getText());
+       adc.setLogradouro(txtLogradouro.getText());
+       adc.setN(txtNumero.getText());
+       adc.setEstado((String) jComboBoxEstado.getSelectedItem());
+       
+       if(adc.getNome().length()==0||adc.getCnpj().length()==0||adc.getN().length()==0||adc.getLogradouro().length()==0
+          ||adc.getCidade().length()==0||adc.getBairro().length()==0||adc.getCep().length()==0){
+           JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+       }
+       else{
+            
+            if(test.VerificaCnpj(cnpjtest)== false){
+                JOptionPane.showMessageDialog(null, "CNPJ invalido");
+            }
+            else{
+                if(cadastro.VerificaCnpjExistente(cnpjtest)== false ){
+                     JOptionPane.showMessageDialog(null, "CNPJ já cadastrado");
+                }
+                else{
+                     cadastro.CadastrarFornecedor(adc);
+                }
+            }
+       }
+           
     }//GEN-LAST:event_btnCadastrarMouseClicked
 
     private void jComboBoxResponsavelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxResponsavelMouseClicked

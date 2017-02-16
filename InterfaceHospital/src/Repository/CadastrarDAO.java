@@ -104,7 +104,7 @@ public class CadastrarDAO {
             pst.setString(10,adc.getRegime());
             pst.setString(11, adc.getLotacao());
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
             rs.close();
             
         }catch(Exception e){
@@ -127,7 +127,9 @@ public class CadastrarDAO {
             pst.setString(7,adc.getLogradouro());
             pst.setString(8,adc.getN());
             pst.setString(9,adc.getResponsavel());
-            rs = pst.executeQuery();
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+            rs.close();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
