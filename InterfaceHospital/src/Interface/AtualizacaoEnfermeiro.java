@@ -319,7 +319,7 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         int selecionado = jTableAtuEnf.getSelectedRow();
         int d;
         if(txtNome.getText().isEmpty() || txtEndereco.getText().isEmpty() ||
-                txtEndereco.getText().isEmpty() || txtCPF.getText().isEmpty() ||
+                txtRG.getText().isEmpty() || txtCPF.getText().isEmpty() ||
                 txtCidade.getText().isEmpty() || txtSalario.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Não podem haver campos vazios");
@@ -335,6 +335,7 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         enfermeiro.setRegime((String) jComboBoxRegimeTrabalho.getSelectedItem());
         d = Integer.parseInt(jTableAtuEnf.getModel().getValueAt(selecionado, 0).toString());
         alteracao.alterarenf(enfermeiro, d);
+        atualizatabela();
         }
         
         

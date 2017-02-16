@@ -9,6 +9,7 @@ import Model.Enfermeiro;
 import Model.Funcionario;
 import Repository.AlteracaoDAO;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -101,6 +102,11 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
         jLabelNOME9.setText("Salário:");
 
         btnAtualizar.setText("Atualizar Funcionário");
+        btnAtualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAtualizarMouseClicked(evt);
+            }
+        });
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
@@ -248,6 +254,30 @@ public class AtualizacaoGeral extends javax.swing.JInternalFrame {
         txtSalario.setText(funcionario.getSalario());
         jComboBoxEstados.setSelectedItem(funcionario.getEstado());
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
+        AlteracaoDAO alteracao = new AlteracaoDAO();
+        Funcionario funcionario = new Funcionario();
+        int selecionado = jTable1.getSelectedRow();
+        int d;
+        if(txtNome.getText().isEmpty() || txtEndereco.getText().isEmpty() ||
+                txtRG.getText().isEmpty() || txtCPF.getText().isEmpty() ||
+                txtCidade.getText().isEmpty() || txtSalario.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Não podem haver campos vazios");
+        }else{
+        funcionario.setNome(txtNome.getText());
+        funcionario.setEndereco(txtEndereco.getText());
+        funcionario.setRg(txtEndereco.getText());
+        funcionario.setCpf(txtCPF.getText());
+        funcionario.setCidade(txtCidade.getText());
+        funcionario.setSalario(txtSalario.getText());
+        funcionario.setEstado((String) jComboBoxEstados.getSelectedItem());
+        d = Integer.parseInt(jTable1.getModel().getValueAt(selecionado, 0).toString());
+        alteracao.alterarfunc(funcionario, d);
+        atualizatabela();
+        }
+    }//GEN-LAST:event_btnAtualizarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
