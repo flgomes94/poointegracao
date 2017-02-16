@@ -9,6 +9,9 @@ import Model.Enfermeiro;
 import Model.Fornecedor;
 import Model.Verificador;
 import Repository.CadastrarDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -312,16 +315,19 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
             
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
         } else{ if(test.VerificaCnpj(cnpjtest)== true){    
-                    if( cadastro.VerificaCnpjExistente(cnpjtest)== true){
-                        String titulo = "Confirmação de dados";
-                        String msg = adc.toString();
-
-                        int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
-
-
-                        if(chave == 0){
+           
+                if( cadastro.VerificaCnpjExistente(cnpjtest)== true){
+                    String titulo = "Confirmação de dados";
+                    String msg = adc.toString();
+                    
+                    int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
+                    
+                    
+                    if(chave == 0){
                         adc.setCnpj(cnpjtest);
+                  
                         cadastro.CadastrarFornecedor(adc);
+                       
                         
                         txtNomeFornecedor.setText("");
                         txtCEP.setText("");
@@ -329,8 +335,8 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
                         txtCidade.setText("");
                         txtLogradouro.setText("");
                         txtNumero.setText("");
-
-
+                        
+                        
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Cadastro não efetuado!");
@@ -339,6 +345,7 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
                 else{
                     JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
                 }
+       
             
             }                                   
             else{

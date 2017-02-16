@@ -207,6 +207,11 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
         }
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -342,8 +347,9 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
     private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNome1ActionPerformed
-private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {                                          
-       Enfermeiro adc = new Enfermeiro();
+
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+      Enfermeiro adc = new Enfermeiro();
        Verificador test = new Verificador();
        CadastrarDAO cadastro = new CadastrarDAO();
        
@@ -366,25 +372,29 @@ private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {
          ){
             
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
-        } else{ if(test.VerificaCpf(cpftest)== true){    
-                    if( cadastro.VerificaCpfExistente(cpftest)== true){
-                        String titulo = "Confirmação de dados";
-                        String msg = adc.toString();
-
-                        int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
-
-
-                        if(chave == 0){
-                            adc.setCpf(cpftest);
-                            cadastro.CadastrarEnfermeiro(adc);
-                            txtNome1.setText("");
-                            txtCPF.setValue(null);
-                            txtRG.setValue(null);
-                            txtCidade.setText("");
-                            txtSalario.setText("");
-                            txtEndereco.setText("");
-
-
+        } else{ 
+            if(test.VerificaCpf(cpftest)== true){    
+         
+                if( cadastro.VerificaCpfExistente(cpftest)== true){
+                    String titulo = "Confirmação de dados";
+                    String msg = adc.toString();
+                    
+                    int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
+                    
+                    
+                    if(chave == 0){
+                        adc.setCpf(cpftest);
+     
+                        cadastro.CadastrarEnfermeiro(adc);
+                      
+                        txtNome1.setText("");
+                        txtCPF.setValue(null);
+                        txtRG.setValue(null);
+                        txtCidade.setText("");
+                        txtSalario.setText("");
+                        txtEndereco.setText("");
+                        
+                        
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Cadastro não efetuado!");
@@ -394,14 +404,16 @@ private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {
                     JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
                 }
             
+            
             }                                   
             else{
                 JOptionPane.showMessageDialog(null, "CPF informado invalido!\nVerifique os caracteres digitados e tente novamente");
             }
         
            
-       }
-    }                                         
+       }  // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarMouseClicked
+                                        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;

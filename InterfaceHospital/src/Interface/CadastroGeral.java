@@ -8,6 +8,9 @@ package Interface;
 import Model.Funcionario;
 import Model.Verificador;
 import Repository.CadastrarDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class CadastroGeral extends javax.swing.JInternalFrame {
@@ -96,6 +99,11 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
         });
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -199,9 +207,8 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {                                          
-       
-       Funcionario adc = new Funcionario();
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+   Funcionario adc = new Funcionario();
        Verificador test = new Verificador();
        CadastrarDAO cadastro = new CadastrarDAO();
        
@@ -223,24 +230,29 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
             
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
         } else{ if(test.VerificaCpf(cpftest)== true){    
-                    if( cadastro.VerificaCpfExistente(cpftest)== true){
-                        String titulo = "Confirmação de dados";
-                        String msg = adc.toString();
-
-                        int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
-
-
-                        if(chave == 0){
-                            adc.setCpf(cpftest);
+            try {
+                if( cadastro.VerificaCpfExistente(cpftest)== true){
+                    String titulo = "Confirmação de dados";
+                    String msg = adc.toString();
+                    
+                    int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
+                    
+                    
+                    if(chave == 0){
+                        adc.setCpf(cpftest);
+                        try {
                             cadastro.cadastrarFuncionario(adc);
-                            txtNome.setText("");
-                            txtCpf.setValue(null);
-                            txtRg.setValue(null);
-                            txtCidade.setText("");
-                            txtSalario.setText("");
-                            txtEndereço.setText("");
-
-
+                        } catch (SQLException ex) {
+                            Logger.getLogger(CadastroGeral.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        txtNome.setText("");
+                        txtCpf.setValue(null);
+                        txtRg.setValue(null);
+                        txtCidade.setText("");
+                        txtSalario.setText("");
+                        txtEndereço.setText("");
+                        
+                        
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Cadastro não efetuado!");
@@ -249,6 +261,9 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
                 else{
                     JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
                 }
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroGeral.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             }                                   
             else{
@@ -257,7 +272,9 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
         
            
        }
-    }                    
+    }//GEN-LAST:event_btnCadastrarMouseClicked
+
+                  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
