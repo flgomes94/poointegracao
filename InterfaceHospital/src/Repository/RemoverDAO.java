@@ -32,7 +32,7 @@ public class RemoverDAO {
             
             try{
                 
-                stmt = conexao.prepareStatement("update Fornecedor SET Responsavel=-1");
+                stmt = conexao.prepareStatement("update Fornecedor SET Responsavel=-1 WHERE Responsavel =" + id);
                 stmt.executeUpdate();
                 stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE ID=" + id);
                 stmt.executeUpdate();
