@@ -34,7 +34,7 @@ public class RemoverDAO {
 
         PreparedStatement stmt = null;
 
-        stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE ID='" + cnpj + "'");
+        stmt = conexao.prepareStatement("DELETE FROM Funcionarios WHERE CNPJ='" + cnpj + "'");
 
         stmt.executeUpdate();
 
