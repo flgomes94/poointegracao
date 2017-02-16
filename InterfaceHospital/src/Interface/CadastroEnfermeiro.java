@@ -364,7 +364,8 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
        adc.setRegime((String) jComboBoxRegimeTrabalho.getSelectedItem());
        adc.setEstado((String) jComboBoxEstados.getSelectedItem());
        
-       String cpftest = adc.getCpf().replaceAll("[^0-9]","");
+       String cpftest;
+       cpftest=adc.getCpf().replaceAll("[^0-9]","");
        if(adc.getNome().length()== 0 ||adc.getCpf().length()==0 
            || adc.getCidade().length()==0 || 
            adc.getEndereco().length()==0 || adc.getRg().length()==0
@@ -374,8 +375,8 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
         } else{ 
             if(test.VerificaCpf(cpftest)== true){    
-         
-                if( cadastro.VerificaCpfExistente(cpftest)== true){
+                boolean x = cadastro.VerificaCpfExistente(cpftest);
+                if(x==true){
                     String titulo = "Confirmação de dados";
                     String msg = adc.toString();
                     

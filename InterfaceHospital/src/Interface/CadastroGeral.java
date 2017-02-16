@@ -229,8 +229,8 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
          ){
             
             JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
-        } else{ if(test.VerificaCpf(cpftest)== true){    
-            try {
+        } else{ 
+           if(test.VerificaCpf(cpftest)== true){    
                 if( cadastro.VerificaCpfExistente(cpftest)== true){
                     String titulo = "Confirmação de dados";
                     String msg = adc.toString();
@@ -261,17 +261,14 @@ public class CadastroGeral extends javax.swing.JInternalFrame {
                 else{
                     JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(CadastroGeral.class.getName()).log(Level.SEVERE, null, ex);
-            }
             
-            }                                   
-            else{
+            
+                }else{
                 JOptionPane.showMessageDialog(null, "CPF informado invalido!\nVerifique os caracteres digitados e tente novamente");
             }
+       }
         
            
-       }
     }//GEN-LAST:event_btnCadastrarMouseClicked
 
                   
