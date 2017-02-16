@@ -1,6 +1,7 @@
 
 package interfacehospital;
 
+import Repository.DbConexao;
 import java.awt.Insets;
 import javax.swing.border.EmptyBorder;
 
@@ -16,6 +17,8 @@ public class Cadastro extends javax.swing.JInternalFrame {
     public Cadastro() {
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
         initComponents();
+        DbConexao db = new DbConexao();
+        db.obterConexao();
     }
     
     @SuppressWarnings("unchecked")
