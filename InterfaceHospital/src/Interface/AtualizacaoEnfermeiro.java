@@ -288,6 +288,7 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         txtCPF.setText(enfermeiro.getCpf());
         txtCidade.setText(enfermeiro.getCidade());
         txtSalario.setText(enfermeiro.getSalario());
+        jComboBoxEstados.setSelectedItem(enfermeiro.getCidade());
     }//GEN-LAST:event_jTableAtuEnfMouseClicked
 
 
