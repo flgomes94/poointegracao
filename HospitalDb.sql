@@ -16,7 +16,7 @@ Endereco varchar (50),
 Estado varchar (30),
 Cidade varchar (30),
 Regime varchar (10),
-Lotacao varchar (10),
+Lotacao varchar (20),
 primary key(ID)
 )
 default charset utf8;
