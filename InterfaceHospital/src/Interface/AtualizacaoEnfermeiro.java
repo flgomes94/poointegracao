@@ -280,6 +280,8 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         
         System.out.println(id);
         remove.removerFuncionario(Integer.parseInt(id));
+        
+        atualizatabela();
                 
     }//GEN-LAST:event_btnRemoverActionPerformed
 

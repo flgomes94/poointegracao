@@ -5,6 +5,10 @@
  */
 package Interface;
 
+import Repository.AlteracaoDAO;
+import java.sql.ResultSet;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Samuel R
@@ -104,7 +108,6 @@ public class ConsultaGeral extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
