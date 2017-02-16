@@ -365,54 +365,9 @@ public class CadastroEnfermeiro extends javax.swing.JInternalFrame {
        adc.setEstado((String) jComboBoxEstados.getSelectedItem());
        
        String cpftest;
-       cpftest=adc.getCpf().replaceAll("[^0-9]","");
-       if(adc.getNome().length()== 0 ||adc.getCpf().length()==0 
-           || adc.getCidade().length()==0 || 
-           adc.getEndereco().length()==0 || adc.getRg().length()==0
-           || adc.getSalario().length()==0 || adc.getTelefone().length()==0
-         ){
-            
-            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos!");   
-        } else{ 
-            if(test.VerificaCpf(cpftest)== true){    
-                boolean x = cadastro.VerificaCpfExistente(cpftest);
-                if(x==true){
-                    String titulo = "Confirmação de dados";
-                    String msg = adc.toString();
-                    
-                    int chave = JOptionPane.showConfirmDialog(null, msg, titulo, JOptionPane.YES_NO_OPTION);
-                    
-                    
-                    if(chave == 0){
-                        adc.setCpf(cpftest);
-     
+       cpftest=txtCPF.getText().replaceAll("[^0-9]","");
+       
                         cadastro.CadastrarEnfermeiro(adc);
-                      
-                        txtNome1.setText("");
-                        txtCPF.setValue(null);
-                        txtRG.setValue(null);
-                        txtCidade.setText("");
-                        txtSalario.setText("");
-                        txtEndereco.setText("");
-                        
-                        
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Cadastro não efetuado!");
-                    }
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "CPF já foi cadastrado!!");
-                }
-            
-            
-            }                                   
-            else{
-                JOptionPane.showMessageDialog(null, "CPF informado invalido!\nVerifique os caracteres digitados e tente novamente");
-            }
-        
-           
-       }  // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarMouseClicked
                                         
 

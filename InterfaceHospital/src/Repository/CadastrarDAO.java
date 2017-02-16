@@ -94,7 +94,7 @@ public class CadastrarDAO {
 }
      */
 
-    public void cadastrarFuncionario(Funcionario adc)throws SQLException {
+    public void cadastrarFuncionario(Funcionario adc){
        conexao = DbConexao.obterConexao();
         String sql;
         sql = "INSERT INTO Funcionarios (Nome, CPF, RG, Telefone, Cargo, Salario, Endereco, Estado, Cidade) VALUES (?,?,?,?,?,?,?,?,?)";
@@ -134,7 +134,7 @@ public class CadastrarDAO {
             pst.setString(9, adc.getCidade());
             pst.setString(10,adc.getRegime());
             pst.setString(11, adc.getLotacao());
-            rs = pst.executeQuery();
+            pst.executeUpdate();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
