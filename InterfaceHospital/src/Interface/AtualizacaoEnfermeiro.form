@@ -215,6 +215,7 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtRG">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="##.###.###-##" subtype="-1" type="5"/>
                 </Property>
@@ -222,6 +223,7 @@
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="txtCPF">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="###.###.###-##" subtype="-1" type="5"/>
                 </Property>
@@ -347,6 +349,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atualizar Enfermeiro"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAtualizarMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

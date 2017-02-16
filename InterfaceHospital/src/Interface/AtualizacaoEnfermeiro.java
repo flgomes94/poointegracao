@@ -8,6 +8,7 @@ package Interface;
 import Model.Enfermeiro;
 import Repository.AlteracaoDAO;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -86,12 +87,14 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
 
         jLabelNOME2.setText("RG:");
 
+        txtRG.setEditable(false);
         try {
             txtRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
+        txtCPF.setEditable(false);
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
@@ -138,6 +141,11 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         jLabel8.setText("Lotaçao:");
 
         btnAtualizar.setText("Atualizar Enfermeiro");
+        btnAtualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAtualizarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -277,6 +285,7 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSalarioActionPerformed
 
     private void jTableAtuEnfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAtuEnfMouseClicked
+ 
         int selecionado = jTableAtuEnf.getSelectedRow();
         String id = jTableAtuEnf.getModel().getValueAt(selecionado, 0).toString();
         AlteracaoDAO alteracao = new AlteracaoDAO();
@@ -288,8 +297,41 @@ public class AtualizacaoEnfermeiro extends javax.swing.JInternalFrame {
         txtCPF.setText(enfermeiro.getCpf());
         txtCidade.setText(enfermeiro.getCidade());
         txtSalario.setText(enfermeiro.getSalario());
-        jComboBoxEstados.setSelectedItem(enfermeiro.getCidade());
+        jComboBoxEstados.setSelectedItem(enfermeiro.getEstado());
+        jComboBoxLotacao2.setSelectedItem(enfermeiro.getLotacao());
+        jComboBoxRegimeTrabalho.setSelectedItem(enfermeiro.getRegime());
+        
+        
     }//GEN-LAST:event_jTableAtuEnfMouseClicked
+
+    private void btnAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtualizarMouseClicked
+        AlteracaoDAO alteracao = new AlteracaoDAO();
+        Enfermeiro enfermeiro = new Enfermeiro();
+        int selecionado = jTableAtuEnf.getSelectedRow();
+        int d;
+        if(txtNome.getText().isEmpty() || txtEndereco.getText().isEmpty() ||
+                txtEndereco.getText().isEmpty() || txtCPF.getText().isEmpty() ||
+                txtCidade.getText().isEmpty() || txtSalario.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Não podem haver campos vazios");
+        }else{
+        enfermeiro.setNome(txtNome.getText());
+        enfermeiro.setEndereco(txtEndereco.getText());
+        enfermeiro.setRg(txtEndereco.getText());
+        enfermeiro.setCpf(txtCPF.getText());
+        enfermeiro.setCidade(txtCidade.getText());
+        enfermeiro.setSalario(txtSalario.getText());
+        enfermeiro.setEstado((String) jComboBoxEstados.getSelectedItem());
+        enfermeiro.setLotacao((String) jComboBoxLotacao2.getSelectedItem());
+        enfermeiro.setRegime((String) jComboBoxRegimeTrabalho.getSelectedItem());
+        d = Integer.parseInt(jTableAtuEnf.getModel().getValueAt(selecionado, 0).toString());
+        alteracao.alterarenf(enfermeiro, d);
+        }
+        
+        
+
+        
+    }//GEN-LAST:event_btnAtualizarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

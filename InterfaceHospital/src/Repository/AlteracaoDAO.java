@@ -11,6 +11,7 @@ public class AlteracaoDAO {
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    
     public ResultSet buscaenfermeiros(){
         conexao = DbConexao.obterConexao();
         String sql;
@@ -25,6 +26,27 @@ public class AlteracaoDAO {
         
         return rs;
     }
+    
+    
+    public ResultSet buscafornecedores(){
+        conexao = DbConexao.obterConexao();
+        String sql;
+        sql = "SELECT cnpj as CNPJ, nome as NOME from Fornecedores";
+        try{
+            pst = conexao.prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        return rs;
+    }
+    
+    
+    
+    
+    
 
     public Enfermeiro buscaenfid(String id) {
         Enfermeiro enfermeiro = new Enfermeiro();
@@ -36,16 +58,17 @@ public class AlteracaoDAO {
             pst.setString(1, id);
             rs = pst.executeQuery();
             if(rs.next()){
-                enfermeiro.setCargo(rs.getString(6));
-                enfermeiro.setCidade(rs.getString(10));
-                enfermeiro.setCpf(rs.getString(3));
-                enfermeiro.setEndereco(rs.getString(8));
-                enfermeiro.setLotacao(rs.getString(12));
                 enfermeiro.setNome(rs.getString(2));
-                enfermeiro.setRegime(rs.getString(11));
+                enfermeiro.setCpf(rs.getString(3));
                 enfermeiro.setRg(rs.getString(4));
-                enfermeiro.setSalario(rs.getString(7));
                 enfermeiro.setTelefone(rs.getString(5));
+                enfermeiro.setCargo(rs.getString(6));
+                enfermeiro.setSalario(rs.getString(7));
+                enfermeiro.setEndereco(rs.getString(8));
+                enfermeiro.setEstado(rs.getString(9));
+                enfermeiro.setCidade(rs.getString(10));
+                enfermeiro.setRegime(rs.getString(11));
+                enfermeiro.setLotacao(rs.getString(12));
             }
             
         }catch(Exception e){
@@ -54,4 +77,28 @@ public class AlteracaoDAO {
         
         return enfermeiro;
     }
+
+    public void alterarenf(Enfermeiro enf,int d) {
+        conexao = DbConexao.obterConexao();
+        String sql;
+        sql = "UPDATE Funcionarios SET Nome=?, Telefone=?, Salario=?, Endereco=?, Estado=?, Cidade=?,Regime=?, Lotacao=? WHERE id=?" ;
+        try{
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, enf.getNome());
+            pst.setString(2, enf.getTelefone());
+            pst.setString(3, enf.getSalario());
+            pst.setString(4, enf.getEndereco());
+            pst.setString(5, enf.getEstado());
+            pst.setString(6, enf.getCidade());
+            pst.setString(7, enf.getRegime());
+            pst.setString(8, enf.getLotacao());
+            pst.setInt(9, d);
+            
+            pst.executeUpdate();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        DbConexao.fecharConexao();
+    }
+    
 }

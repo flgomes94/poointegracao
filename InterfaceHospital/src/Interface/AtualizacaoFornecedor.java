@@ -5,6 +5,10 @@
  */
 package Interface;
 
+import Repository.AlteracaoDAO;
+import java.sql.ResultSet;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Samuel R
@@ -17,6 +21,7 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
     public AtualizacaoFornecedor() {
          ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
         initComponents();
+        atualizatabela();
     }
 
     /**
@@ -323,4 +328,12 @@ public class AtualizacaoFornecedor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNome6;
     private javax.swing.JTextField txtNome7;
     // End of variables declaration//GEN-END:variables
+private void atualizatabela() {
+        AlteracaoDAO dao = new AlteracaoDAO();
+        ResultSet rs = dao.buscafornecedores();
+        jTableConsEnf.setModel(DbUtils.resultSetToTableModel(rs));
+    }
+
+
+
 }

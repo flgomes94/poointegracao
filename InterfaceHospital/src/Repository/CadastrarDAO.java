@@ -135,6 +135,8 @@ public class CadastrarDAO {
             pst.setString(10,adc.getRegime());
             pst.setString(11, adc.getLotacao());
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            rs.close();
             
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
