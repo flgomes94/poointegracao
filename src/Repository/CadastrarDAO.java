@@ -136,4 +136,19 @@ public class CadastrarDAO {
         }
     }
     
+    public ResultSet busca(){
+        conexao = DbConexao.obterConexao();
+        String sql;
+        sql = "SELECT id as Código, nome as NOME from Funcionarios";
+        try{
+            pst = conexao.prepareStatement(sql); 
+            rs = pst.executeQuery();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        return rs;
+    }
+    
 }

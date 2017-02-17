@@ -5,14 +5,12 @@
  */
 package Interface;
 
-import Model.Enfermeiro;
 import Model.Fornecedor;
 import Model.Verificador;
 import Repository.CadastrarDAO;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -20,12 +18,12 @@ import javax.swing.JOptionPane;
  */
 public class CadastroFornecedor extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AtualizacaoFornecedor
-     */
+    String responsavel = null;
+    
     public CadastroFornecedor() {
                  ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null); 
         initComponents();
+        atualizatabela();
     }
 
     /**
@@ -149,6 +147,11 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
                 "Código", "Nome"
             }
         ));
+        jTableResponsavel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableResponsavelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableResponsavel);
 
         jLabelNOME8.setText("Responsável:");
@@ -305,27 +308,44 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
        adc.setLogradouro(txtLogradouro.getText());
        adc.setN(txtNumero.getText());
        adc.setEstado((String) jComboBoxEstado.getSelectedItem());
+       adc.setResponsavel(responsavel);
        
        if(adc.getNome().length()==0||adc.getCnpj().length()==0||adc.getN().length()==0||adc.getLogradouro().length()==0
           ||adc.getCidade().length()==0||adc.getBairro().length()==0||adc.getCep().length()==0){
            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
        }
        else{
+           if(adc.getResponsavel().length()==0){
+               JOptionPane.showMessageDialog(null, "Selecione o responsavel!");
+           }
+           else{
             
-            if(test.VerificaCnpj(cnpjtest)== false){
-                JOptionPane.showMessageDialog(null, "CNPJ invalido");
-            }
-            else{
-                if(cadastro.VerificaCnpjExistente(cnpjtest)== false ){
-                     JOptionPane.showMessageDialog(null, "CNPJ já cadastrado");
+                if(test.VerificaCnpj(cnpjtest)== false){
+                    JOptionPane.showMessageDialog(null, "CNPJ invalido");
                 }
                 else{
-                     cadastro.CadastrarFornecedor(adc);
+                    if(cadastro.VerificaCnpjExistente(cnpjtest)== false ){
+                         JOptionPane.showMessageDialog(null, "CNPJ já cadastrado");
+                    }
+                    else{
+                         cadastro.CadastrarFornecedor(adc);
+                    }
                 }
-            }
+           }
        }
-           
     }//GEN-LAST:event_btnCadastrarMouseClicked
+
+    private void jTableResponsavelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableResponsavelMouseClicked
+        int selecionado = jTableResponsavel.getSelectedRow();
+        responsavel = jTableResponsavel.getModel().getValueAt(selecionado, 0).toString();
+    }//GEN-LAST:event_jTableResponsavelMouseClicked
+
+    private void atualizatabela() {
+        CadastrarDAO dao = new CadastrarDAO();
+
+        ResultSet rs = dao.busca();
+        jTableResponsavel.setModel(DbUtils.resultSetToTableModel(rs));
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
