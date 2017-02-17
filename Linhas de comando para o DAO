@@ -1,0 +1,86 @@
+Cadastrar novo funcionario:
+"INSERT INTO Funcionarios (Nome, CPF, RG, Telefone, Cargo, Salario, Endereco, Estado, Cidade) VALUES (?,?,?,?,?,?,?,?,?)"
+
+No caso do funcionario ser um enfermeiro:
+"INSERT INTO Funcionarios (Nome, CPF, RG, Telefone, Cargo, Salario, Endereco, Estado, Cidade, Regime, Lotacao) VALUES (?,?,?,?,?,?,?,?,?,?,?)"
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Cadastrar novo Fornecedor:
+"INSERT INTO Fornecedor (CNPJ, Nome, Estado, Cidade, Bairro, CEP, Logradouro, N, Responsavel) VALUES (?,?,?,?,?,?,?,?,?)"
+(Onde a coluna 'Responsavel' deve receber a chave primaria do funcionario reponsavel pela entrega do fornecedor que deve ser recebida apartir da seleção na hora do cadastro)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Seleção de todas as linhas e colunas de cada tabela:
+"SELECT * from Funcionarios"
+"SELECT * from Fornecedor"
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+Principais filtros de busca para funcionarios:
+
+
+(Em qualquer linha podemos adicionar 'order by Nome' após a '?' para selecionar os nomes em ordem alfabética)
+
+"SELECT * FROM Funcionarios WHERE ID = ?"       
+"SELECT * FROM Funcionarios WHERE CPF = ?"
+"SELECT * FROM Funcionarios WHERE RG = ?"
+"SELECT * FROM enfermeiros WHERE Nome = ?" (Busca por nome completo)
+"SELECT * FROM Funcionarios WHERE Nome LIKE ?" (antes deve-se concatenar a string que armazena o nome com '%' em ambos os lados) (Busca por nome similar)
+
+No caso do funcionario ser um enfermeiro:
+"SELECT * FROM Funcionarios WHERE Lotacao = ?"
+
+É preciso adicionar um filtro de cargo em cada um dos casos, (Ex. "SELECT * FROM Funcionarios WHERE ID = ? AND cargo =?")
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Para buscar um fornecedor devemos imprimir também algumas informações adicionais referentes ao funcionario, para isso usamos o conceito de chaves estrangeiras,
+fazendo com que o fornecedor mescle suas informações com o nome, telefone e cargo do funcionario que está ligado a ele através da coluna 'Responsavel':
+
+
+"SELECT Fornecedor.*,Funcionarios.nome,Funcionarios.Telefone,Funcionarios.Cargo FROM  Fornecedor join Funcionarios on Funcionarios.ID=Fornecedor.Responsavel WHERE Fornecedor.CNPJ = ?"
+
+A linha de comando a cima seleciona todas as informações de um fornecedor juntamente com nome, telefone e cargo do funcionario Tudo isso com base no CNPJ do fornecedor.
+
+
+De maneira análoga temos:
+
+"SELECT Fornecedor.*,Funcionarios.nome,Funcionarios.Telefone,Funcionarios.Cargo FROM  Fornecedor join Funcionarios on Funcionarios.ID=Fornecedor.Responsavel WHERE Fornecedor.Nome = ?" 
+
+(Para buscar os mesmos dados pelo nome do fornecedor)
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+Deletar linhas:
+
+"DELETE FROM Funcionarios WHERE RG = ?"                  
+"DELETE FROM Funcionarios WHERE CPF = ?"
+"DELETE FROM Funcionarios WHERE ID = ?"
+
+(Não podemos deletar um funcionario que tenha uma relação estabelecida com um fornecedor, nesse caso teriamos que quebrar a relação e depois deleta-lo)
+
+"DELETE FROM Fornecedor WHERE CNPJ = ?"
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+A melhor maneira de edição é criando um novo objeto de uma classe com uma estrutura semelhante a da tabela, e usar tal objeto como parametro dos metodos DAO de alteração,
+fazendo assim com que todas as colunas sejam da linha seja afetada, mesmo que elas contenham valores iguais aos anteriores:
+
+"UPDATE Funcionarios SET Nome=?, CPF=?, RG=?, Telefone=?, Cargo=?, Salario=?, Endereco=?, Estado=?, Cidade=?,Regime=?, Lotacao=? "
+"UPDATE Fornecedor SET CNPJ=?, Nome=?, Estado=?, Cidade=?, Bairro=?, CEP=?, Logradouro=?, N=?, Responsavel=?"
+
+
+
+
+
+
+
+
+
+
+
+
